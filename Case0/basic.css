@@ -43,6 +43,9 @@ div.grid2 {
 
 div.grid3 {
 	background-color: blue;
+	animation-name:exxample;
+	animation-duration:4s;
+	animation-iteration-count: infinite;
 }
 
 div.grid4 {
@@ -73,4 +76,9 @@ div.grid4 {
 @keyframes heartbeat {
 	from {transform: scale(1,1); color: white;}
 	to {transform: scale(1.2,1.2); color: red;}
+}
+
+@keyframes example{
+	from {background-color:black;}
+	to {background-color:white;}
 }
