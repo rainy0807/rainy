@@ -58,13 +58,14 @@ $(document).ready(function() {
 			$("#feels-like").text(fl_1);
 			
 			//溫度 #temp #day2-high-low, day3-high-low, day4-high-low
-			var minT_1 = arr.records.location[0].weatherElement[2].time[0].parameter.parameterName;
-			var minT_2 = arr.records.location[0].weatherElement[2].time[1].parameter.parameterName;
-			var minT_3 = arr.records.location[0].weatherElement[2].time[2].parameter.parameterName;
-			var maxT_1 = arr.records.location[0].weatherElement[4].time[0].parameter.parameterName;
-			var maxT_2 = arr.records.location[0].weatherElement[4].time[1].parameter.parameterName;
-			var maxT_3 = arr.records.location[0].weatherElement[4].time[2].parameter.parameterName;
-			$("#temp").text(Math.round((Number(minT_1) + Number(maxT_1)) / 2) + "°");
+			var tempday = arr.records.locations[0].location[0].weatherElement[1].time[0].elementValue[0].value;
+			var minT_1 = arr.records.locations[0].location[0].weatherElement[8].time[2].elementValue[0].value;
+			var minT_2 = arr.records.locations[0].location[0].weatherElement[8].time[4].elementValue[0].value;
+			var minT_3 = arr.records.locations[0].location[0].weatherElement[8].time[6].elementValue[0].value;
+			var maxT_1 = arr.records.locations[0].location[0].weatherElement[5].time[2].elementValue[0].value;
+			var maxT_2 = arr.records.locations[0].location[0].weatherElement[5].time[4].elementValue[0].value;
+			var maxT_3 = arr.records.locations[0].location[0].weatherElement[5].time[6].elementValue[0].value;
+			$("#temp").text(tempday+ "°");
 			$("#day2-high-low").text(minT_1 + "~" + maxT_1 + "°C");
 			$("#day3-high-low").text(minT_2 + "~" + maxT_2 + "°C");
 			$("#day4-high-low").text(minT_3 + "~" + maxT_3 + "°C");
