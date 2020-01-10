@@ -71,9 +71,9 @@ $(document).ready(function() {
 			$("#day4-high-low").text(minT_3 + "~" + maxT_3 + "°C");
 			
 			//降雨機率 #day2-precip, day3-precip, day4-precip
-			var rain_1 = arr.records.location[0].weatherElement[1].time[0].parameter.parameterName;
-			var rain_2 = arr.records.location[0].weatherElement[1].time[1].parameter.parameterName;
-			var rain_3 = arr.records.location[0].weatherElement[1].time[2].parameter.parameterName;
+			var rain_1 = arr.records.locations[0].location[0].weatherElement[0].time[2].elementValue[0].value;
+			var rain_2 = arr.records.locations[0].location[0].weatherElement[0].time[4].elementValue[0].value;
+			var rain_3 = arr.records.locations[0].location[0].weatherElement[0].time[5].elementValue[0].value;
 			$("#day2-precip").text(rain_1 + "%");
 			$("#day3-precip").text(rain_2 + "%");
 			$("#day4-precip").text(rain_3 + "%");
