@@ -14,7 +14,7 @@ $(document).ready(function() {
 		//中央氣象局 F-C0032-001 一般天氣預報-今明 36 小時天氣預報資料 API 全部縣市
 		var url_all = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=" + Your_Weather_API_key + "&format=JSON";
 		//中央氣象局 F-C0032-001 一般天氣預報-今明 36 小時天氣預報資料 API by 縣市
-		var url_city = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=" + Your_Weather_API_key + "&format=JSON&locationName=";
+		var url_city = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=" + Your_Weather_API_key + "&format=JSON&locationName=";
 		var jqxhr = $.getJSON(url_city + city_name, function() {
 			// console.log("Get Taiwan weather success.");
 		})
@@ -22,15 +22,16 @@ $(document).ready(function() {
 			console.log("The second success.");
 			// var outStr = JSON.stringify(arr);
 			
-			var time_1 = arr.records.location[0].weatherElement[0].time[0].startTime.substr(5,8).replace("-","/") + "時";
-			var time_2 = arr.records.location[0].weatherElement[0].time[1].startTime.substr(5,8).replace("-","/") + "時";
-			var time_3 = arr.records.location[0].weatherElement[0].time[2].startTime.substr(5,8).replace("-","/") + "時";
+			var time_1 = arr.records.locations[0].location[0].weatherElement[0].time[0].startTime.substr(5,5).replace("-","/");
+			var time_2 = arr.records.locations[0].location[0].weatherElement[0].time[2].startTime.substr(5,5).replace("-","/");
+			var time_3 = arr.records.locations[0].location[0].weatherElement[0].time[4].startTime.substr(5,5).replace("-","/");
+			var time_4 = arr.records.locations[0].location[0].weatherElement[0].time[6].startTime.substr(5,5).replace("-","/");
 			//主時間 Day 2, 3, 4 時間資料 #date, #day2, day3, day4
 			$("#city").text(city_name);
-			$("#date").text(time_1.substr(0,5));
-			$("#day2").text(time_1);
-			$("#day3").text(time_2);
-			$("#day4").text(time_3);
+			$("#date").text(time_1);
+			$("#day2").text(time_2);
+			$("#day3").text(time_3);
+			$("#day4").text(time_4);
 			
 			//天氣概況 #weather-description
 			var weather_1 = arr.records.location[0].weatherElement[0].time[0].parameter.parameterName;
