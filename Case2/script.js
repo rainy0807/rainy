@@ -34,10 +34,12 @@ $(document).ready(function() {
 			$("#day4").text(time_4);
 			
 			//天氣概況 #weather-description
-			var weather_1 = arr.records.location[0].weatherElement[0].time[0].parameter.parameterName;
-			var weather_value_1 = arr.records.location[0].weatherElement[0].time[0].parameter.parameterValue;
-			var weather_value_2 = arr.records.location[0].weatherElement[0].time[1].parameter.parameterValue;
-			var weather_value_3 = arr.records.location[0].weatherElement[0].time[2].parameter.parameterValue;
+			var weather_1 = arr.records.locations[0].location[0].weatherElement[6].time[0].elementValue[0].value;
+			var weather_value_1 = arr.records.locations[0].location[0].weatherElement[6].time[0].elementValue[1].value.substr(1);
+			var weather_value_2 = arr.records.locations[0].location[0].weatherElement[6].time[2].elementValue[1].value.substr(1);
+			var weather_value_3 = arr.records.locations[0].location[0].weatherElement[6].time[4].elementValue[1].value.substr(1);
+			var weather_value_4 = arr.records.locations[0].location[0].weatherElement[6].time[6].elementValue[1].value.substr(1);;
+
 			$("#weather-description").text(weather_1);
 			//skycons.set("weather-icon", icon); https://github.com/darkskyapp/skycons {"clear-day", "clear-night", "partly-cloudy-day", "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind", "fog"}
 			//Use dictionary to map weather icon (ForecastElement.PDF)
@@ -46,9 +48,9 @@ $(document).ready(function() {
 			// console.log(weather_value_1,weather_value_2,weather_value_3);
 			var skycons = new Skycons({"color": "#A9DD9B"});
 			skycons.set("weather-icon", weather_dict[weather_value_1]);
-			skycons.set("weather-icon-day2", weather_dict[weather_value_1]);
-			skycons.set("weather-icon-day3", weather_dict[weather_value_2]);
-			skycons.set("weather-icon-day4", weather_dict[weather_value_3]);
+			skycons.set("weather-icon-day2", weather_dict[weather_value_2]);
+			skycons.set("weather-icon-day3", weather_dict[weather_value_3]);
+			skycons.set("weather-icon-day4", weather_dict[weather_value_4]);
 			skycons.play();
 			
 			//舒適度 #feels-like
