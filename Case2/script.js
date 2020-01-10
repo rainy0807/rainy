@@ -54,7 +54,7 @@ $(document).ready(function() {
 			skycons.play();
 			
 			//舒適度 #feels-like
-			var fl_1 = arr.records.location[0].weatherElement[3].time[0].parameter.parameterName;
+			var fl_1 = arr.records.locations[0].location[0].weatherElement[13].time[0].elementValue[0].value;
 			$("#feels-like").text(fl_1);
 			
 			//溫度 #temp #day2-high-low, day3-high-low, day4-high-low
